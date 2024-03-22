@@ -4,7 +4,7 @@ Um template ElectronJS com NextJS no Front-End para tornar as suas aplicações 
 
 ## Primeiros passos
 
-Clone este repositorio, abra o seu terminal digite:
+Clone este repositorio, abra o seu terminal e digite:
 
 ```bash
 npm install 
@@ -37,7 +37,7 @@ mac:
   icon: "resources/icon.icns" # O diretório exato do seu icon
 ```
 
-- Depois de especificar corretamente as opções necessárias no electron-builder.yaml arquivo, basta executar npm run buildem seu terminal. 
+- Depois de especificar corretamente as opções necessárias no electron-builder.yaml arquivo, basta executar npm run build em seu terminal. 
 
 - Os arquivos estáticos Next.JS serão gerados e exportados para o out/diretório, então o aplicativo Electron será compilado e salvo no dist/diretório.
 
