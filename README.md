@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## ElectronJS + NextJS Template 
 
-## Getting Started
+Um template ElectronJS com NextJS no Front-End para tornar as suas aplicações Desktop + Reactivas.
 
-First, run the development server:
+## Primeiros passos
+
+Clone este repositorio, abra o seu terminal digite:
 
 ```bash
+npm install 
+# em seguida
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O Electron construira a sua aplicação em um ambiente de desenvolvimento e escutara a sua aplicação NextJs na porta 3000 [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando `app/page.tsx`. A página é atualizada automaticamente conforme você edita o arquivo.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Compilando a aplicação
 
-## Learn More
+Estamos usando o (electron-builder) para lidar com isso para nós.
 
-To learn more about Next.js, take a look at the following resources:
+Comece a criar um arquivo chamado (electron-builder.yaml) na raiz do seu projeto.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+appId: "io.github.rbfraphael.electron-next"
+productName: "Electron Next.JS"
+copyright: "Copyright (c) 2024 Nilton667"
+win:
+  target: ["dir", "portable", "zip"]
+  icon: "resources/icon.ico" # O diretório exato do seu icon
+linux:
+  target: ["dir", "appimage", "zip"]
+  icon: "resources/icon.png" # O diretório exato do seu icon
+mac:
+  target: ["dir", "dmg", "zip"]
+  icon: "resources/icon.icns" # O diretório exato do seu icon
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Depois de especificar corretamente as opções necessárias no electron-builder.yaml arquivo, basta executar npm run buildem seu terminal. 
 
-## Deploy on Vercel
+- Os arquivos estáticos Next.JS serão gerados e exportados para o out/diretório, então o aplicativo Electron será compilado e salvo no dist/diretório.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [electron-builder Documentação](https://www.electron.build)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Notas Do Author
+
+- O app route do nextJS não é compativel com Electron então se for utiliza-lo podera ter um comportamento inesperado.
+
+- É uma boa praticada separar as paginas por componentes em vez de usar o page route, Assim o electron carregara toda a sua aplicação logo no primeiro carregamento.
+
+- Se notar alguma anormalia não relatada aqui sinta-se a vontande para abrir um tikect (Problemas) que eu terei muito gosto em resolver com você.
